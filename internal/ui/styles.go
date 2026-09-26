@@ -110,7 +110,7 @@ func (p *Printer) Status(s release.State, prefix string) {
 	labelW := 16
 	row := func(label, value string) string {
 		pad := strings.Repeat(" ", labelW-len(label))
-		return styleBold.Render(label+":")+pad+value
+		return styleBold.Render(label+":") + pad + value
 	}
 
 	p.out("")
@@ -118,7 +118,33 @@ func (p *Printer) Status(s release.State, prefix string) {
 	p.out(row("In-flight RC", inflight))
 	p.out(row("Next stage", nextStageStr))
 	p.out(row("Next release", nextReleaseStr))
-	p.out("")
+
+	// The CI verdict of the in-flight RC (GRIT-6872): appended separately by
+	// the status command so the git-only summary stays complete on its own.
+}
+
+// CINone prints the muted line for an in-flight RC with no reachable run.
+func (p *Printer) CINone(tag string) {
+	p.out(styleBold.Render("RC CI:") + strings.Repeat(" ", 10) +
+		styleMuted.Render("no run found for "+tag+" (no gh, or nothing triggered)"))
+}
+
+// CIVerdict prints the release job's state next to the in-flight RC tag.
+func (p *Printer) CIVerdict(tag string, runID int64, verdict string) {
+	label := styleBold.Render("RC CI:") + strings.Repeat(" ", 10)
+	if verdict == "" {
+		verdict = "run state unknown"
+	}
+	var styledVerdict string
+	if strings.HasPrefix(verdict, "FAILED") || strings.HasPrefix(verdict, "CANCELLED") {
+		styledVerdict = styleError.Render(verdict)
+	} else if strings.HasPrefix(verdict, "succeeded") {
+		styledVerdict = styleSuccess.Render(verdict)
+	} else {
+		styledVerdict = styleHint.Render(verdict)
+	}
+	p.out(label + styleRC.Render(tag) + "  →  " + styledVerdict +
+		styleMuted.Render(fmt.Sprintf("  (grit ci log --run %d)", runID)))
 }
 
 // TagList prints the annotated tag list.

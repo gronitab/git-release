@@ -2,10 +2,12 @@ package commands
 
 import (
 	"fmt"
+	"time"
 
-	"github.com/spf13/cobra"
+	"github.com/skaramicke/git-release/internal/ci"
 	"github.com/skaramicke/git-release/internal/git"
 	"github.com/skaramicke/git-release/internal/release"
+	"github.com/spf13/cobra"
 )
 
 func newStageCmd() *cobra.Command {
@@ -16,8 +18,8 @@ func newStageCmd() *cobra.Command {
 
 Without a scope, continues whatever is already in flight (or starts a patch RC).
 With a scope (minor, major), applies the requested bump to the latest prod tag.`,
-		Args:  cobra.MaximumNArgs(1),
-		RunE:  runStage,
+		Args: cobra.MaximumNArgs(1),
+		RunE: runStage,
 		Example: `  git release stage           # continue in-flight RC, or create patch-rc
   git release stage minor     # target next minor version
   git release stage major     # target next major version
@@ -83,6 +85,16 @@ func runStage(cmd *cobra.Command, args []string) error {
 	}
 
 	ctx.print.TagCreated(tagName, ctx.cfg.TagPrefix, false)
+
+	// HAND BACK THE RUN (GRIT-6872). "created and pushed" is true about the
+	// tag and says nothing about the release: the job it triggers can fail
+	// minutes later while the caller waits for a rollout that is not coming.
+	// Best-effort — no gh, no run, nothing changes about the exit code.
+	if r, _ := ci.WaitForRun(ctx.dir, tagName, 3, 3*time.Second); r != nil {
+		ctx.print.Success(fmt.Sprintf("release job started: %s (grit ci log --run %d)", r.HTMLURL, r.DatabaseID))
+	} else {
+		ctx.print.Success(fmt.Sprintf("no release run appeared for %s yet — check with: gh run list --branch %s", tagName, tagName))
+	}
 
 	// Note stale old RC
 	if ctx.state.InFlightRC != nil {
