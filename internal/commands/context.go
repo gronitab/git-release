@@ -7,11 +7,11 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/skaramicke/git-release/internal/config"
-	"github.com/skaramicke/git-release/internal/git"
-	"github.com/skaramicke/git-release/internal/release"
-	"github.com/skaramicke/git-release/internal/semver"
-	"github.com/skaramicke/git-release/internal/ui"
+	"github.com/gronitab/git-release/internal/config"
+	"github.com/gronitab/git-release/internal/git"
+	"github.com/gronitab/git-release/internal/release"
+	"github.com/gronitab/git-release/internal/semver"
+	"github.com/gronitab/git-release/internal/ui"
 )
 
 // runContext holds everything resolved for a command invocation.

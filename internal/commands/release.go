@@ -5,10 +5,10 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/skaramicke/git-release/internal/git"
-	"github.com/skaramicke/git-release/internal/release"
-	"github.com/skaramicke/git-release/internal/semver"
-	"github.com/skaramicke/git-release/internal/ui"
+	"github.com/gronitab/git-release/internal/git"
+	"github.com/gronitab/git-release/internal/release"
+	"github.com/gronitab/git-release/internal/semver"
+	"github.com/gronitab/git-release/internal/ui"
 )
 
 func runRelease(cmd *cobra.Command, args []string) error {

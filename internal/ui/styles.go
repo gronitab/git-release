@@ -9,9 +9,9 @@ import (
 	"time"
 
 	"github.com/charmbracelet/lipgloss"
-	"github.com/skaramicke/git-release/internal/git"
-	"github.com/skaramicke/git-release/internal/release"
-	"github.com/skaramicke/git-release/internal/semver"
+	"github.com/gronitab/git-release/internal/git"
+	"github.com/gronitab/git-release/internal/release"
+	"github.com/gronitab/git-release/internal/semver"
 )
 
 var (

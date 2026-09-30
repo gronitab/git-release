@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/skaramicke/git-release/internal/ci"
-	"github.com/skaramicke/git-release/internal/git"
-	"github.com/skaramicke/git-release/internal/release"
+	"github.com/gronitab/git-release/internal/ci"
+	"github.com/gronitab/git-release/internal/git"
+	"github.com/gronitab/git-release/internal/release"
 	"github.com/spf13/cobra"
 )
 

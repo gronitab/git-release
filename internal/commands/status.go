@@ -3,7 +3,7 @@ package commands
 import (
 	"time"
 
-	"github.com/skaramicke/git-release/internal/ci"
+	"github.com/gronitab/git-release/internal/ci"
 	"github.com/spf13/cobra"
 )
 

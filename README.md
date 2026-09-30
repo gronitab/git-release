@@ -21,7 +21,7 @@ problem imperfectly. `git-release` standardises the workflow:
 ## Installation
 
 ```sh
-curl -fsSL https://github.com/skaramicke/git-release/releases/latest/download/install.sh | sh
+curl -fsSL https://github.com/gronitab/git-release/releases/latest/download/install.sh | sh
 ```
 
 Places `git-release` in `/usr/local/bin` — git picks it up automatically as `git release`.

@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/skaramicke/git-release/internal/ui"
+	"github.com/gronitab/git-release/internal/ui"
 )
 
 const primeContent = `# git-release — Agent Quick Reference

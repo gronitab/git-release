@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/skaramicke/git-release/internal/commands"
+	"github.com/gronitab/git-release/internal/commands"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

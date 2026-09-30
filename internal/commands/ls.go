@@ -2,8 +2,8 @@ package commands
 
 import (
 	"github.com/spf13/cobra"
-	"github.com/skaramicke/git-release/internal/git"
-	"github.com/skaramicke/git-release/internal/semver"
+	"github.com/gronitab/git-release/internal/git"
+	"github.com/gronitab/git-release/internal/semver"
 )
 
 func newLsCmd() *cobra.Command {

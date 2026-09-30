@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/skaramicke/git-release/internal/build"
+	"github.com/gronitab/git-release/internal/build"
 )
 
 func newVersionCmd() *cobra.Command {

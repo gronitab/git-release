@@ -8,9 +8,9 @@ import (
 	"os/exec"
 
 	"github.com/spf13/cobra"
-	"github.com/skaramicke/git-release/internal/build"
-	"github.com/skaramicke/git-release/internal/semver"
-	"github.com/skaramicke/git-release/internal/ui"
+	"github.com/gronitab/git-release/internal/build"
+	"github.com/gronitab/git-release/internal/semver"
+	"github.com/gronitab/git-release/internal/ui"
 )
 
 const (

@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 # install.sh — installer for git-release
 # Usage:
-#   curl -fsSL https://github.com/skaramicke/git-release/releases/latest/download/install.sh | sh
+#   curl -fsSL https://github.com/gronitab/git-release/releases/latest/download/install.sh | sh
 #
 # Override install directory: INSTALL_DIR=/usr/local/bin sh install.sh
 set -e
 
-REPO="skaramicke/git-release"
+REPO="gronitab/git-release"
 INSTALL_DIR="${INSTALL_DIR:-/usr/local/bin}"
 BINARY="git-release"
 

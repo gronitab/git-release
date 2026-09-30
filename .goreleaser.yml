@@ -55,7 +55,7 @@ changelog:
 
 release:
   github:
-    owner: skaramicke
+    owner: gronitab
     name: git-release
   draft: false
   prerelease: auto  # marks -rc tags as pre-release automatically
@@ -67,7 +67,7 @@ release:
     ## Installation
 
     ```sh
-    curl -fsSL https://github.com/skaramicke/git-release/releases/latest/download/install.sh | sh
+    curl -fsSL https://github.com/gronitab/git-release/releases/latest/download/install.sh | sh
     ```
 
     Once installed, `git` will pick it up as `git release`.

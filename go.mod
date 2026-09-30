@@ -1,4 +1,4 @@
-module github.com/skaramicke/git-release
+module github.com/gronitab/git-release
 
 go 1.25.0
 

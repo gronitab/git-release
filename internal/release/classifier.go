@@ -5,7 +5,7 @@ package release
 import (
 	"errors"
 
-	"github.com/skaramicke/git-release/internal/semver"
+	"github.com/gronitab/git-release/internal/semver"
 )
 
 // Scope represents the semver bump scope for a release or stage command.

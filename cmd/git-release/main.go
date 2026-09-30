@@ -4,8 +4,8 @@ import (
 	"errors"
 	"os"
 
-	"github.com/skaramicke/git-release/internal/build"
-	"github.com/skaramicke/git-release/internal/commands"
+	"github.com/gronitab/git-release/internal/build"
+	"github.com/gronitab/git-release/internal/commands"
 )
 
 // These vars are populated by GoReleaser via -ldflags.

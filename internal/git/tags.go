@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/skaramicke/git-release/internal/semver"
+	"github.com/gronitab/git-release/internal/semver"
 )
 
 // TagInfo holds a parsed version together with its commit metadata.

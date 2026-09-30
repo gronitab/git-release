@@ -3,7 +3,7 @@ package semver_test
 import (
 	"testing"
 
-	"github.com/skaramicke/git-release/internal/semver"
+	"github.com/gronitab/git-release/internal/semver"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
